@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+addEventListener("message", function(e) {
+    let size = e.data;
+    top.frames[0].postMessage("A".repeat(size), "*");
+});
+</script>
+</body>
+</html>
