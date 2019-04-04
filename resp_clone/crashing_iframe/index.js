@@ -1,5 +1,11 @@
 const IFRAME_URL = "https://notsheddow.xyz/resp_clone/iframe.html"
 
+addEventListener("load", function() {
+    let f = document.createElement('iframe');
+    f.src = IFRAME_URL;
+    document.body.appendChild(f);
+});
+
 async function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
