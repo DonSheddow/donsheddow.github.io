@@ -40,7 +40,7 @@ async function get_count(url, alloc_size) {
     }
 
     addEventListener("message", msg_handler);
-    frames[0].postMessage({url, alloc_size}, "*");
+    frames[0].postMessage({action: "clone_until_crash", url, alloc_size}, "*");
     await wait_until_frame_has_crashed();
     removeEventListener("message", msg_handler);
 
