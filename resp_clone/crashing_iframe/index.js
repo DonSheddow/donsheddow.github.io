@@ -48,6 +48,14 @@ async function get_count(url, alloc_size) {
     return count;
 }
 
+async function get_samples(url, alloc_size, n = 5) {
+    let samples = [];
+    for (let i = 0; i < n; i++) {
+        samples.push(await get_count(url, alloc_size));
+    }
+    return samples;
+}
+
 async function get_max_alloc_size() {
     let size = 0;
     function msg_handler(event) {
