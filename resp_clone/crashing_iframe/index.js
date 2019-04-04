@@ -43,3 +43,18 @@ async function get_count(url, alloc_size) {
     await reload_iframe();
     return count;
 }
+
+async function get_max_alloc_size() {
+    let size = 0;
+    function msg_handler(event) {
+        size = event.data;
+    }
+
+    addEventListener("message", msg_handler);
+    frames[0].postMessage({action: "alloc_until_crash"}, "*");
+    await wait_until_frame_has_crashed();
+    removeEventListener("message", msg_handler);
+
+    await reload_iframe();
+    return size;
+}
