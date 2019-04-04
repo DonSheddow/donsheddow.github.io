@@ -1,5 +1,9 @@
 const IFRAME_URL = "https://notsheddow.xyz/resp_clone/iframe.html"
 
+const KB = 1024;
+const MB = 1024*1024;
+const GB = 1024*1024*1024;
+
 addEventListener("load", function() {
     let f = document.createElement('iframe');
     f.src = IFRAME_URL;
@@ -48,7 +52,6 @@ async function get_max_alloc_size() {
     let size = 0;
     function msg_handler(event) {
         size = event.data;
-        console.log(size);
     }
 
     addEventListener("message", msg_handler);
