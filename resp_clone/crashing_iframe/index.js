@@ -12,13 +12,13 @@ async function wait(ms) {
 
 async function wait_until_frame_has_crashed() {
     while (frames[0].frames.length > 0) {
-        await Promise.resolve(1);
+        await wait(1);
     }
 }
 
 async function wait_until_frame_has_loaded() {
     while (frames[0].frames.length == 0) {
-        await Promise.resolve(1);
+        await wait(1);
     }
 }
 
@@ -48,6 +48,7 @@ async function get_max_alloc_size() {
     let size = 0;
     function msg_handler(event) {
         size = event.data;
+        console.log(size);
     }
 
     addEventListener("message", msg_handler);
