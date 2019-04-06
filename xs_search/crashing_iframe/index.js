@@ -73,4 +73,21 @@ async function get_samples(url, alloc_size, n = 5) {
     return samples;
 }
 
+async function get_it(url, alloc_size) {
+    let samples = get_samples(url, alloc_size, 3);
+    samples.sort((a, b) => a-b);
+    return samples[1];
+}
 
+async function tune_for_url(url, initial_size) {
+    let size = initial_size;
+    let measurement = get_it(url, size);
+    while (!(50 < measurement && measurement < 100)) {
+        let delta = measurement - 75;
+        let size += delta*MB;
+        measurement = get_it(url, size);
+        console.log(measurement);
+    }
+
+    return size;
+}
