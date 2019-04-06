@@ -74,7 +74,7 @@ async function get_samples(url, alloc_size, n = 5) {
 }
 
 async function get_it(url, alloc_size) {
-    let samples = get_samples(url, alloc_size, 3);
+    let samples = await get_samples(url, alloc_size, 3);
     samples.sort((a, b) => a-b);
     return samples[1];
 }
