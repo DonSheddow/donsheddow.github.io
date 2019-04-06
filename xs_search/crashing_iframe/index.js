@@ -1,3 +1,5 @@
+'use strict';
+
 const IFRAME_URL = "https://notsheddow.xyz/resp_clone/iframe.html"
 
 const KB = 1024;
@@ -33,6 +35,21 @@ async function reload_iframe() {
     await wait_until_frame_has_loaded();
 }
 
+async function get_max_alloc_size() {
+    let size = 0;
+    function msg_handler(event) {
+        size = event.data;
+    }
+
+    addEventListener("message", msg_handler);
+    frames[0].postMessage({action: "alloc_until_crash"}, "*");
+    await wait_until_frame_has_crashed();
+    removeEventListener("message", msg_handler);
+
+    await reload_iframe();
+    return size;
+}
+
 async function get_count(url, alloc_size) {
     let count = 0;
     function msg_handler(event) {
@@ -56,17 +73,4 @@ async function get_samples(url, alloc_size, n = 5) {
     return samples;
 }
 
-async function get_max_alloc_size() {
-    let size = 0;
-    function msg_handler(event) {
-        size = event.data;
-    }
 
-    addEventListener("message", msg_handler);
-    frames[0].postMessage({action: "alloc_until_crash"}, "*");
-    await wait_until_frame_has_crashed();
-    removeEventListener("message", msg_handler);
-
-    await reload_iframe();
-    return size;
-}
