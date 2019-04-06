@@ -81,11 +81,11 @@ async function get_it(url, alloc_size) {
 
 async function tune_for_url(url, initial_size) {
     let size = initial_size;
-    let measurement = get_it(url, size);
+    let measurement = await get_it(url, size);
     while (!(50 < measurement && measurement < 100)) {
         let delta = measurement - 75;
         size += delta*MB;
-        measurement = get_it(url, size);
+        measurement = await get_it(url, size);
         console.log(measurement);
     }
 
