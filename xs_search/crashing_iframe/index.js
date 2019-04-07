@@ -81,12 +81,16 @@ async function get_it(url, alloc_size) {
 
 async function tune_for_url(url, initial_size) {
     let size = initial_size;
-    let measurement = await get_it(url, size);
+    let measurement = 0;
     while (!(50 < measurement && measurement < 100)) {
         console.log(measurement);
         let delta = measurement - 75;
         size += delta*32*KB;
-        measurement = await get_it(url, size);
+        measurement = await Promise.race([get_it(url, size), wait(3000)]);
+        if (measurement == undefined) {
+            size += 100*MB;
+            continue;
+        }
     }
     console.log(measurement);
 
