@@ -86,7 +86,7 @@ async function tune_for_url(url, initial_size) {
         console.log(measurement);
         let delta = measurement - 75;
         size += delta*32*KB;
-        measurement = await Promise.race([get_it(url, size), wait(3000)]);
+        measurement = await Promise.race([get_it(url, size), wait(6000)]);
         if (measurement == undefined) {
             size += 100*MB;
             continue;
