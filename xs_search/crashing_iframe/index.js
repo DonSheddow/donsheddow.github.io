@@ -85,7 +85,7 @@ async function tune_for_url(url, initial_size) {
     while (!(50 < measurement && measurement < 100)) {
         console.log(measurement);
         let delta = measurement - 75;
-        size += delta*256*KB;
+        size += delta*32*KB;
         measurement = await get_it(url, size);
     }
     console.log(measurement);
