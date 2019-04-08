@@ -6,12 +6,6 @@ const KB = 1024;
 const MB = 1024*1024;
 const GB = 1024*1024*1024;
 
-addEventListener("load", function() {
-    let f = document.createElement('iframe');
-    f.src = IFRAME_URL;
-    document.body.appendChild(f);
-});
-
 async function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

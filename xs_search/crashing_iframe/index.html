@@ -22,8 +22,13 @@
     }
 
     window.onload = async function() {
-        window.alloc_size = await get_max_alloc_size();
-        unset_loading();
+        let f = document.createElement('iframe');
+        f.src = IFRAME_URL;
+        f.onload = function() {
+            window.alloc_size = await get_max_alloc_size();
+            unset_loading();
+        }
+        document.body.appendChild(f);
     }
 
     async function calibrate() {
