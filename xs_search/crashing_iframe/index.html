@@ -41,7 +41,7 @@ input {
         let url = document.getElementById('base_url').value;
         let {size, count} = await tune_for_url(url, alloc_size);
         window.alloc_size = size;
-        document.getElementByid('base_out') = count;
+        document.getElementById('base_out') = count;
         unset_loading();
     }
 
