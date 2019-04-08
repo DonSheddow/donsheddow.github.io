@@ -12,13 +12,13 @@
 <script src="index.js"></script>
 <script>
     function set_loading() {
-        document.getElementById('inputs').addClass('hidden');
-        document.getElementById('loading').removeClass('hidden');
+        document.getElementById('inputs').classList.add('hidden');
+        document.getElementById('loading').classList.remove('hidden');
     }
 
     function unset_loading() {
-        document.getElementById('inputs').removeClass('hidden');
-        document.getElementById('loading').addClass('hidden');
+        document.getElementById('inputs').classList.remove('hidden');
+        document.getElementById('loading').classList.add('hidden');
     }
 
     window.onload = async function() {
