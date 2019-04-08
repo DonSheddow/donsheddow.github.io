@@ -76,15 +76,15 @@ async function get_samples(url, alloc_size, n = 5) {
 async function get_it(url, alloc_size) {
     let samples = await get_samples(url, alloc_size, 3);
     samples.sort((a, b) => a-b);
-    return samples[1];
+    return samples[0];
 }
 
 async function tune_for_url(url, initial_size) {
     let size = initial_size;
     let measurement = 0;
-    while (!(25 < measurement && measurement < 75)) {
+    while (!(50 < measurement && measurement < 100)) {
         console.log(measurement);
-        let delta = measurement - 50;
+        let delta = measurement - 75;
         size += delta*512*KB;
         measurement = await get_it(url, size);
     }
