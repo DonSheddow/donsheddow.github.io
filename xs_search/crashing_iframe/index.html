@@ -29,9 +29,9 @@ input {
         let f = document.createElement('iframe');
         f.src = IFRAME_URL;
         f.onload = async function() {
-            await wait(1000);
+            /*await wait(1000);
             window.alloc_size = await get_max_alloc_size();
-            unset_loading();
+            unset_loading();*/
         }
         document.body.appendChild(f);
     }
