@@ -90,5 +90,5 @@ async function tune_for_url(url, initial_size) {
     }
     console.log(measurement);
 
-    return size;
+    return {size, count: measurement};
 }

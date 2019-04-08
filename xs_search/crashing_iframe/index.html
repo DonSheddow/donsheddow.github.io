@@ -1,9 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.hidden {
+    display: none;
+}
+</style>
 </head>
 
 <body>
 <script src="index.js"></script>
+<script>
+    function set_loading() {
+        document.getElementById('inputs').addClass('hidden');
+        document.getElementById('loading').removeClass('hidden');
+    }
+
+    function unset_loading() {
+        document.getElementById('inputs').removeClass('hidden');
+        document.getElementById('loading').addClass('hidden');
+    }
+
+    window.onload = async function() {
+        window.alloc_size = await get_max_alloc_size();
+        unset_loading();
+    }
+
+    async function calibrate() {
+        set_loading();
+        let url = document.getElementById('base_url').value;
+        let {size, count} = await tune_for_url(url, alloc_size);
+        window.alloc_size = size;
+        document.getElementByid('base_out') = count;
+        unset_loading();
+    }
+
+    async function test() {
+        set_loading();
+        let url = document.getElementById('test_url').value;
+        let count = await get_it(url, alloc_size);
+        document.getElementById('test_out') = count;
+        unset_loading();
+    }
+</script>
+<div id="inputs" class="hidden">
+    <label for="base_url">Base URL: </label><input id="base_url" type="text" value="https://sheddow.xyz/flask/bytes?len=1000">
+    <span id="base_out"></span>
+
+    <button onclick="calibrate()">Calibrate</button>
+
+
+    <label for="test">Test URL: </label><input id="test_url" type="text" value="https://sheddow.xyz/flask/bytes?len=1025">
+    <span id="test_out"></span>
+
+    <button onclick="test()">Test</button>
+</div>
+<div id="loading">
+    loading...
+</div>
 </body>
 </html>
