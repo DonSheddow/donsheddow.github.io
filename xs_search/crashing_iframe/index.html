@@ -5,6 +5,10 @@
 .hidden {
     display: none;
 }
+
+input {
+    width: 75%;
+}
 </style>
 </head>
 
@@ -49,16 +53,20 @@
     }
 </script>
 <div id="inputs" class="hidden">
+    <div>
     <label for="base_url">Base URL: </label><input id="base_url" type="text" value="https://sheddow.xyz/flask/bytes?len=1000">
     <span id="base_out"></span>
 
     <button onclick="calibrate()">Calibrate</button>
+    </div>
 
 
+    <div>
     <label for="test">Test URL: </label><input id="test_url" type="text" value="https://sheddow.xyz/flask/bytes?len=1025">
     <span id="test_out"></span>
 
     <button onclick="test()">Test</button>
+    </div>
 </div>
 <div id="loading">
     loading...
