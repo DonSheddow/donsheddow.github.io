@@ -1,13 +1,13 @@
 {
-  "main.css": "/crashing-iframe/static/css/main.f632802a.chunk.css",
-  "main.js": "/crashing-iframe/static/js/main.0d2e2c19.chunk.js",
-  "main.js.map": "/crashing-iframe/static/js/main.0d2e2c19.chunk.js.map",
-  "runtime~main.js": "/crashing-iframe/static/js/runtime~main.8010bf13.js",
-  "runtime~main.js.map": "/crashing-iframe/static/js/runtime~main.8010bf13.js.map",
-  "static/js/2.1c2ca715.chunk.js": "/crashing-iframe/static/js/2.1c2ca715.chunk.js",
-  "static/js/2.1c2ca715.chunk.js.map": "/crashing-iframe/static/js/2.1c2ca715.chunk.js.map",
-  "index.html": "/crashing-iframe/index.html",
-  "precache-manifest.e4299aaa2070c1e5d008de06d89baab9.js": "/crashing-iframe/precache-manifest.e4299aaa2070c1e5d008de06d89baab9.js",
-  "service-worker.js": "/crashing-iframe/service-worker.js",
-  "static/css/main.f632802a.chunk.css.map": "/crashing-iframe/static/css/main.f632802a.chunk.css.map"
+  "main.css": "/static/css/main.f632802a.chunk.css",
+  "main.js": "/static/js/main.0d2e2c19.chunk.js",
+  "main.js.map": "/static/js/main.0d2e2c19.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+  "static/js/2.1c2ca715.chunk.js": "/static/js/2.1c2ca715.chunk.js",
+  "static/js/2.1c2ca715.chunk.js.map": "/static/js/2.1c2ca715.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.1539f3ffb135a17857df6f117b191402.js": "/precache-manifest.1539f3ffb135a17857df6f117b191402.js",
+  "service-worker.js": "/service-worker.js",
+  "static/css/main.f632802a.chunk.css.map": "/static/css/main.f632802a.chunk.css.map"
 }
